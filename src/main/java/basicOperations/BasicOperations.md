@@ -1,4 +1,4 @@
-Week 2 - Project rewrite - basic operations without OOP
+# Week 2 - Project rewrite - basic operations without OOP
 
 My task was to reimplement some basic built-in functionalities of a language or its standard library
 for pedagogical reasons without using built-in functionalities or the standard library itself.
