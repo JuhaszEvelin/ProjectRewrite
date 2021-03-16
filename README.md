@@ -1,4 +1,4 @@
-# ProjectRewrite
+# Project Rewrite
 During my education I found the following rewrite projects very useful.  
 After these projects I have deeper understand the operations of Java.
 

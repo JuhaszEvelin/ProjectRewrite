@@ -14,7 +14,7 @@ public class MainDA {
         d.prettyPrint();
 
         System.out.println("insert to index 3 the value 5: ");
-        d.insert(3,5);
+        d.insert(3, 5);
         d.prettyPrint();
 
         System.out.println("insert to index 2 the value 22: ");
@@ -37,7 +37,7 @@ public class MainDA {
         d.remove(1);
         d.prettyPrint();
 
-        System.out.println( d.toString());
+        System.out.println(d.toString());
 
     }
 }

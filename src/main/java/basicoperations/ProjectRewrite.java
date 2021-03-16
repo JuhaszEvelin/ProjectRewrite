@@ -130,7 +130,7 @@ public class ProjectRewrite {
             }
         } else {
             for (int i = 1; i <= -y; i++) {
-                newResult = newResult / (double)x;
+                newResult = newResult / (double) x;
             }
         }
         return result;

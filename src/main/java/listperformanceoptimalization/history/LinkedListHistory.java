@@ -62,16 +62,16 @@ public class LinkedListHistory implements History {
 
             boolean isAllInList = true;
 
-            for (int i = 0; i < fromWords.length; i++){
+            for (int i = 0; i < fromWords.length; i++) {
 
-                if (listIterator.hasNext() && !(fromWords[i].equals(listIterator.next()))){
+                if (listIterator.hasNext() && !(fromWords[i].equals(listIterator.next()))) {
                     isAllInList = false;
                     break;
                 }
 
-                if (i == fromWords.length-1){
+                if (i == fromWords.length - 1) {
 
-                    for (int j = 0; j < fromWords.length; j++){
+                    for (int j = 0; j < fromWords.length; j++) {
                         listIterator.previous();
                     }
                 }
