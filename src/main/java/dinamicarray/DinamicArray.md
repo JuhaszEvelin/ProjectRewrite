@@ -4,5 +4,5 @@ My task was to reimplement some basic built-in features of a language or its sta
 
 Caveat: I don’t use such code in my commercial projects!
 
-In this project the prewritten DynamicArrayTest was very helpful but it was one of the first time we used test class so I was not familier with it. 
+In this project the prewritten DynamicArrayTest was very helpful, but it was one of the first time we used tests, so I was not familiar with it. 
 That is why I created an extra Main class to check the results and debug.
