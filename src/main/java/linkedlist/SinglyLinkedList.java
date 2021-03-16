@@ -37,17 +37,17 @@ public class SinglyLinkedList<T> {
      * @param value value to be appended
      */
     public void add(T value) {
-        if (this.head == null) {                    //első elemet hozza létre
+        if (this.head == null) {
             this.head = new Link<T>(value);
-            head.next = null;                   //sor végét jelzi, beállítom nullra mert ez az utolsó elem lesz
-        } else {                                 //második elemtől hozza létre
+            head.next = null;
+        } else {
             Link<T> iterator = head;
-            while (iterator.next != null) {      //ha adott értékhez tartozó link null azaz utolsó elem
-                iterator = iterator.next;       //iterátort következőre állítom
+            while (iterator.next != null) {
+                iterator = iterator.next;
             }
-            Link<T> temp = new Link<T>(value);  //segédváltozónak megadom az értéket
-            temp.next = null;                   // adott értékhez tartozó következő elemre mutató link nulla mert utolsó elem
-            iterator.next = temp;               //előző elem (iteratorba mentve) linkje (next) ez a létrehozott érték (temp)
+            Link<T> temp = new Link<T>(value);
+            temp.next = null;
+            iterator.next = temp;
 
         }
 
@@ -64,25 +64,20 @@ public class SinglyLinkedList<T> {
         if (this.head == null && head.next == null) {
             throw new IndexOutOfBoundsException("It is an empty List, please give an index between 0- " + this.size() + " !");
 
-        } else if (index > this.size() - 1) {                        //ha nagyobb indexet ad meg mint a size
+        } else if (index > this.size() - 1) {
             throw new IndexOutOfBoundsException("There no element in this index please give an index between 0- " + this.size() + " !");
 
         } else if (index == 0) {
             Link<T> iterator = head;
-           /* while (iterator == null && iterator.next != null) {      //ha adott értékhez tartozó link nem null azaz utolsó elem
-                iterator = iterator.next;       //iterátort következőre állítom így megáll az utolsó elemen
-            }*/
-            return iterator.getValue();                    //visszaadom iterátort ami az utolsó elem headje azaz értéke
+            return iterator.getValue();
         } else {
             Link<T> iterator = head;
             int indexToIterate = 0;
-            while (indexToIterate != index) {      //amíg adott értékhez tartozó index = keresett index-szel
-                iterator = iterator.next;       //iterátort következőre állítom így megáll az utolsó elem értékén
-                indexToIterate++;              //indexek számát léptetem, megáll a keresett indexen
+            while (indexToIterate != index) {
+                iterator = iterator.next;
+                indexToIterate++;
             }
-            return iterator.getValue();         //utolsó elem értékét visszaadja
-
-
+            return iterator.getValue();
         }
 
     }
@@ -104,11 +99,11 @@ public class SinglyLinkedList<T> {
 
             Link<T> iterator = head;
             int indexToIterate = 0;
-            while (iterator != null) {      // végignézem
+            while (iterator != null) {
                 if (iterator.getValue().equals(number)) {
-                    return indexToIterate;       //ha megtalálom a keresett értéket akkor visszatérek az adott indexxel
+                    return indexToIterate;
                 } else {
-                    iterator = iterator.next;       //iterátort következőre állítom így megáll az utolsó elemen
+                    iterator = iterator.next;
                     indexToIterate++;
                 }
             }
@@ -123,98 +118,95 @@ public class SinglyLinkedList<T> {
      * @param index  Position of the new element
      * @param number Value to be inserted.
      */
-    public void insert(int index, T number) {       //T value lesz
-        if (index == 0) {             //első elemnek berakja ha index ==0
-            Link<T> newElement = new Link<T>(number);    //létrehozom az első elem értékét
-           newElement.next = head;
-            this.head = newElement;            //megadom az új első elem linkjét azaz a korábbi első elem értékét
-        } else if (index == this.size()) {           //utolsó elemnek berakja ha index = lista méretével
+    public void insert(int index, T number) {
+        if (index == 0) {
+            Link<T> newElement = new Link<T>(number);
+            newElement.next = head;
+            this.head = newElement;
+        } else if (index == this.size()) {
             this.add(number);
-        } else if(index < 0 || index > this.size()){
-            throw new IndexOutOfBoundsException("Index is not valid, please give a valid index between 0-"+ this.size() + " !");
+        } else if (index < 0 || index > this.size()) {
+            throw new IndexOutOfBoundsException("Index is not valid, please give a valid index between 0-" + this.size() + " !");
         } else {
             Link<T> iterator = head;
             int indexToIterate = 0;
-            while (indexToIterate != index-1) {      //amíg adott értékhez tartozó index előtti elemhez nem ér
+            while (indexToIterate != index - 1) {
 
-                iterator = iterator.next;       //iterátort következőre állítom így megáll a keresett elem előtti értékén
+                iterator = iterator.next;
                 indexToIterate++;
-                    //indexek számát léptetem, megáll a keresett indexen
             }
 
-            Link<T> newItem = new Link<T>(number);  //segédváltozónak megadom az értéket
-            newItem.next = iterator.next;   // adott értékhez tartozó következő elemre mutató link az erdeti elem érétke
-            iterator.next = newItem;      //előző elem előtti (iterátorba mentve) linkje az új érték (temp)
-
+            Link<T> newItem = new Link<T>(number);
+            newItem.next = iterator.next;
+            iterator.next = newItem;
         }
+    }
 
-        }
 
-
-        /**
-         * Returns with the amount of inserted nodes.
-         *
-         * @return Size of list.
-         */
-        public int size () {                                //2. amit megcsinálunk
-            int count = 0;
-            Link<T> iterator = head;
-            if (iterator == null) {
-                return count;
-            } else {
-                count++;
-                while (iterator.next != null) {
-                    iterator = iterator.next;
-                    count++;
-                }
-            }
+    /**
+     * Returns with the amount of inserted nodes.
+     *
+     * @return Size of list.
+     */
+    public int size() {
+        int count = 0;
+        Link<T> iterator = head;
+        if (iterator == null) {
             return count;
-
+        } else {
+            count++;
+            while (iterator.next != null) {
+                iterator = iterator.next;
+                count++;
+            }
         }
+        return count;
 
-        /**
-         * Removes the element at 'index' from the array.
+    }
 
-         * @param index Position of value to be deleted.
-         */
-        public void remove ( int index){
-            if (index == 0) {
-                if (head == null) {
-                    throw new IndexOutOfBoundsException();
-                } else {
-                    head = head.getNext();
-                }
-                return;
+    /**
+     * Removes the element at 'index' from the array.
+     *
+     * @param index Position of value to be deleted.
+     */
+    public void remove(int index) {
+        if (index == 0) {
+            if (head == null) {
+                throw new IndexOutOfBoundsException();
+            } else {
+                head = head.getNext();
             }
-            Link<T> elementBeforeIndex = head;
-            while (index - 1 > 0) {
-                elementBeforeIndex = elementBeforeIndex.getNext();
-                index--;
-                if (elementBeforeIndex == null) {
-                    throw new IndexOutOfBoundsException();
-                }
-            }
-            Link<T> elementAtIndex = elementBeforeIndex.getNext();
-            if (elementAtIndex == null) {
+            return;
+        }
+        Link<T> elementBeforeIndex = head;
+        while (index - 1 > 0) {
+            elementBeforeIndex = elementBeforeIndex.getNext();
+            index--;
+            if (elementBeforeIndex == null) {
                 throw new IndexOutOfBoundsException();
             }
-            elementBeforeIndex.setNext(elementAtIndex.getNext());
         }
+        Link<T> elementAtIndex = elementBeforeIndex.getNext();
+        if (elementAtIndex == null) {
+            throw new IndexOutOfBoundsException();
+        }
+        elementBeforeIndex.setNext(elementAtIndex.getNext());
+    }
 
 
     @Override
     public String toString() {
-            if (this.size() == 0){
-                return "[]";
-            } else {
-                Link<T> iterator = this.head;
-                String listToString = "";
-                while (iterator != null) {      //amíg adott értékhez tartozó index előtti elemhez nem ér
-                    listToString += iterator.getValue() + ", ";
-                    iterator = iterator.next;       //iterátort következőre állítom így megáll a keresett elem előtti értékén
-                }
-                return listToString;
+        if (this.size() == 0) {
+            return "[]";
+        } else {
+            Link<T> iterator = this.head;
+            String listToString = "";
+            while (iterator != null) {
+                listToString += iterator.getValue() + ", ";
+                iterator = iterator.next;
             }
+            return listToString;
+        }
     }
 }
 
