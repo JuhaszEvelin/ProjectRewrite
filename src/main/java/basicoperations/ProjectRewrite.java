@@ -1,4 +1,4 @@
-package basicOperations;
+package basicoperations;
 
 public class ProjectRewrite {
     public static void main(String[] args) {
