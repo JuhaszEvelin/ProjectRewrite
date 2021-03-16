@@ -1,9 +1,8 @@
 
 *.xml
 *.iml
-target/classes/com/codecool/projectrewrite/divide.class
-target/classes/com/codecool/projectrewrite/min2.class
-target/classes/com/codecool/projectrewrite/multiply2.class
-target/classes/com/codecool/projectrewrite/pow.class
-target/classes/com/codecool/projectrewrite/pow2.class
-target/classes/com/codecool/projectrewrite/ProjectRewrite.class
+# IntelliJ
+.idea/
+target/
+*.iml
+
